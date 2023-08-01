@@ -6,11 +6,12 @@ int stack[MAX];
 int top;
 void push(char ch);
 char pop();
-int bcheck (char st, char end);
+int bcheck(char st, char end);
 
-int main() 
+int main()
 {
   int i;
+  int k;
   char ch1, ch2;
   top = -1;
   printf("Provide an Expression : ");
@@ -24,17 +25,19 @@ int main()
     }
     else {
       ch2 = pop();
-      int k = bcheck(ch2, ch1);
+      k = bcheck(ch2, ch1);
       if (k == 0) {
         printf("Wrong.\n");
         break;
       }
+      if (k == 1) {
+            printf("Right.\n");
+            break;
+      }
+    }
   }
 }
-if (k == 1) {
-  printf("Right.\n");
-  break;
-}
+
 
 void push (char ch) {
   if (top == MAX-1) {
@@ -58,7 +61,7 @@ char pop() {
   }
 }
 
-int bcheck (char st, char end) {
+int bcheck(char st, char end) {
   if (st == '[' && end == ']') {
     return 1;
   }
