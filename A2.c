@@ -18,7 +18,7 @@ int main()
 
 int unique(int arr[], int n){
    int i, j, c=0;
-  printf("unique elements in an array is : ");
+  printf("unique elements in array is : ");
    for(i = 0; i < n; i++){
       for(j = 0; j < n; j++){
          if(arr[i] == arr[j] && i != j)
