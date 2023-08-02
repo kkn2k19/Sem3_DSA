@@ -4,11 +4,12 @@
 #define MAX 10
 float stack[MAX];
 int top;
+float R, L, UR;
 void push (float item);
 float pop();
 float evaluate (float L, float R, char op);
 
-int main () 
+int main ()
 {
   int item;
   int i;
@@ -31,6 +32,7 @@ int main ()
       push (UR);
     }
   }
+  printf("The Result is : %f", stack[0]);
   return 0;
 }
 
@@ -72,5 +74,4 @@ float evaluate (float L, float R, char op) {
     t = L*R;
   }
   return (t);
-  printf("The Result is : %f", stack[0]);
 }
