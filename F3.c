@@ -8,7 +8,7 @@ FIB(n) = 0, if n = 0
 #include <stdio.h>
 int fib(int n);
 
-int main () 
+int main ()
 {
   int n, k;
   printf("Enter no. of terms : ");
@@ -19,9 +19,8 @@ int main ()
   return 0;
 }
 
-int fib (int n) 
+int fib (int n)
 {
-       int n;
        if (n ==0 || n == 1) {
               return n;
        }
