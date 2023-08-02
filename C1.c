@@ -40,6 +40,37 @@ void push (float item) {
   }
   else {
     top = top + 1;
-    stack[i] = item;
+    stack[top] = item;
   }
+}
+
+float pop()
+{
+  char item;
+  if (top == -1) {
+    printf("Underflow.\n");
+  }
+  else {
+    item = stack[top];
+    top = top - 1;
+    return (item);
+  }
+}
+
+float evaluate (float L, float R, char op) {
+  float t;
+  if (op == '+') {
+    t = L+R;
+  }
+  else if (op == '-') {
+    t = L-R;
+  }
+  else if (op == '/') {
+    t = L/R;
+  }
+  else {
+    t = L*R;
+  }
+  return (t);
+  printf("The Result is : %f", stack[0]);
 }
