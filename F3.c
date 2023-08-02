@@ -13,19 +13,17 @@ int main ()
   int n, k;
   printf("Enter no. of terms : ");
   scanf("%d", &n);
-  k = fib(n);
-  printf("%d ");
+  for (k = 0; k < n; k++) {
+         printf("%d ", fib(k));
+  }
   return 0;
 }
 
 int fib (int n) 
 {
        int n;
-       if (n==0) {
-              return 0;
-       }
-       else if (n == 1) {
-              return 1;
+       if (n ==0 || n == 1) {
+              return n;
        }
        else {
               return (fib(n-1) + fib(n-2));
