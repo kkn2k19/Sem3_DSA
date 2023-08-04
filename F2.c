@@ -9,20 +9,20 @@ Find X^y
 
 int main()
 {
-    float k;
+    int k;
     int x;
     int y;
     printf("Enter no. and its exponential power : ");
     scanf("%d %d", &x, &y);
     k = expo(x, y);
-    printf("Result : %f\n", k);
+    printf("Result : %d\n", k);
     return 0;
 }
 
 int expo(int x, int y){
-    float k;
+    int k;
     if (y == 0) {
-            return 1.0;
+            return 1;
     }
     else {
             k = x*expo(x, y-1);
