@@ -8,14 +8,15 @@ void ENQUE(int item);
 int DEQUE();
 void DISPLAY();
 
-int main () 
+int main ()
 {
   int item;
   int option;
+  int k;
   F = -1;
   R = -1;
   while (option != 4) {
-    printf("Press 1 for ENQUE,\n2 for DEQUE,\n3 for DISPLAY,\n4 for EXIT. : \n");
+    printf("Press 1 for ENQUE,\n2 for DEQUE,\n3 for DISPLAY,\n4 for EXIT. : ");
     scanf("%d", &option);
     switch(option) {
       case 1 :
@@ -74,6 +75,7 @@ int DEQUE() {
 void DISPLAY() {
   int i;
   for (i = F; i <= R; i++) {
-    printf("%d ", &LQ[i]);
+    printf("%d ", LQ[i]);
   }
+  printf("\n");
 }
