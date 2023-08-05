@@ -36,8 +36,8 @@ int main()
       }
     }
   }
+  return 0;
 }
-
 
 void push (char ch) {
   if (top == MAX-1) {
