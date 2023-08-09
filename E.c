@@ -90,6 +90,7 @@ void serving() {
       F = F+1;                  //
     }
     printf("Served Booking : ---");
+    printf("\nBooking Number : %d", i+1);
     printf("\nCustomer Name : ");
     puts(a[20]);
     printf("\nAadhar No. : ");
