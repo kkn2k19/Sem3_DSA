@@ -61,13 +61,13 @@ void booking() {
       R = R+1;
     }
     printf("Customer Name : ");
-    fgets(LQ[R].name);
+    gets(LQ[R].name);
     printf("Aadhar No. : ");
-    fgets(LQ[R].aadhar);
+    gets(LQ[R].aadhar);
     printf("Mobile No. : ");
-    fgets(LQ[R].mobile);
+    gets(LQ[R].mobile);
     printf("City : ");
-    fgets(LQ[R].city);
+    gets(LQ[R].city);
   }
 }
 
