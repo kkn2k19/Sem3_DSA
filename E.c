@@ -9,101 +9,70 @@ Write a menu-driven program to accept a booking, show the customers details, and
 NOT COMPLETE YET!!!!!
 
 
-#include <stdio.h>
-#define MAX 10
-char LQ_name[MAX];
-int LQ_aadhar[MAX];
-int LQ_mobile[MAX];
-char LQ_city[MAX];          
-int F, R;
-void Book(char name[], int aadhar, int mobile, char city[]);
-char serving();
-void display();
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
-int main ()
-{
-  char name[15];
-  int mobile;
-  int aadhar;
-  char city[10];
-  int option;
-  char n;
-  int a;
-  int m;
-  char c;
-  F = -1;
-  R = -1;
-  while (option != 4) {
-    printf("Press 1 for Book,\n2 for Serving,\n3 for Display,\n4 for EXIT. : ");
-    scanf("%d", &option);
-    switch(option) {
-      case 1 :
-             printf("Enter required details to Book : ");
-             printf("Customer name : ");
-             gets(name);
-             printf("Aadhar Number : ");
-             scanf("%d", &aadhar);
-             printf("Mobile Number : ");
-             scanf("%d", &mobile);
-             printf("City : ");
-             gets(city);
-             Book(char name[], int aadhar, int mobile, char city[]);
-             break;
-      case 2 :
-             k = book();
-             printf("booked item : %d\n", k);
-             break;
-      case 3 :
-             display();
-             break;
-      case 4 :
-             printf("Exiting.\n");
+typedef struct customer {
+    char name[50];
+    char aadharNo[20];
+    char mobileNo[15];
+    char city[50];
+} Customer;
+
+Customer booking[100];
+int lastBooking = 0;
+
+void book() {
+    if(lastBooking >= 100) {
+        printf("Booking full!\n");
+        return;
     }
-  }
-  return 0;
+    printf("Enter your name: ");
+    scanf(" %[^\n]s", booking[lastBooking].name);
+    printf("Enter your Aadhar number: ");
+    scanf(" %[^\n]s", booking[lastBooking].aadharNo);
+    printf("Enter your mobile number: ");
+    scanf(" %[^\n]s", booking[lastBooking].mobileNo);
+    printf("Enter your city: ");
+    scanf(" %[^\n]s", booking[lastBooking].city);
+    lastBooking++;
+    printf("Booking successful!\n");
 }
 
-void Book(char name[], int aadhar, int mobile, char city[]) {
-  if (R == MAX-1) {
-    printf("Fully Booked.\n");
-  }
-  else {
-    if (R == -1) {
-      R = R+1;
-      F = F+1;
+void show() {
+    int i;
+    for(i = 0; i < lastBooking; i++) {
+        printf("Booking no: %d\n", i+1);
+        printf("Name: %s\n", booking[i].name);
+        printf("Aadhar number: %s\n", booking[i].aadharNo);
+        printf("Mobile number: %s\n", booking[i].mobileNo);
+        printf("City: %s\n", booking[i].city);
+        printf("\n");
     }
-    else {
-      R = R+1;
-    }
-    LQ_name[R] = name;
-    LQ_aadhar[R] = aadhar;
-    LQ_mobile[R] = mobile;
-    LQ_city[R] = city;
-  }
 }
 
-char serving() {
-  int item;
-  if (F == -1) {
-    printf("Zero Booking.\n");
-  }
-  else {
-    item = LQ[F];
-    if (F == R) {
-      F = -1;
-      R = -1;
+int main() {
+    int choice;
+    while(choice != 3) {
+        printf("1. Book a car\n");
+        printf("2. Show booking details\n");
+        printf("3. Exit\n");
+        printf("Enter your choice : ");
+        scanf("%d", &choice);
+        switch(choice) {
+            case 1:
+                book();
+                break;
+            case 2:
+                show();
+                break;
+            case 3:
+                printf("Exiting.\n");;
+                break;
+            default:
+                printf("Invalid choice!\n");
+        }
     }
-    else {
-      F = F+1;
-    }
-    return item;
-  }
-}
-
-void display() {
-  int i;
-  for (i = F; i <= R; i++) {
-    printf("%d ", LQ[i]);
-  }
-  printf("\n");
+    return 0;
 }
