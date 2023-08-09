@@ -7,6 +7,8 @@ Write a menu-driven program to accept a booking, show the customers details, and
 sequence in which booking will be served on 1st December.
 */
 
+NOT COMPLETE!!!!!
+
 #include <stdio.h>
 #define MAX 100
 struct car {
