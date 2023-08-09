@@ -1,78 +1,107 @@
 /*
-The famous car manufacturing compary, NavaVista, launching their Battery Operated subsidized 6-seater Car this 1st December.
+The famous car manufacturing company, NavaVista, launching their Battery Operated subsidized 6-seater Car this 1st December.
 For that NavaVista had opened the booking for 100 customers only.
 Your job is to maintain the booking details on a First book First get basis.
-You have to accept the foolowing details from the customers : (Name, AadharNo, MobileNo, City).
-Write a menu-driven program to accept a booking, show the customers details, and sequence in which booking will be served on 1st December.
+You have to accept the following details from the customers : (Name, Aadhar No, MobileNo, City).
+Write a menu-driven program to accept a booking, show the customers details, and
+sequence in which booking will be served on 1st December.
 */
 
-// NOT COMPLETE YET!!!!!
+#include <stdio.h>
+#define MAX 100
+struct car {
+    char name[20];
+    char aadhar[20];
+    char mobile[12];
+    char city[20];
+};
+struct car LQ[MAX];
+int F, R;
+void booking();
+void serving();
+void display();
 
-
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-
-typedef struct customer {
-    char name[50];
-    char aadharNo[20];
-    char mobileNo[15];
-    char city[50];
-} Customer;
-
-Customer booking[100];
-int lastBooking = 0;
-
-void book() {
-    if(lastBooking >= 100) {
-        printf("Booking full!\n");
-        return;
+int main ()
+{
+  int option;
+  char n;
+  int a;
+  int m;
+  char c;
+  F = -1;
+  R = -1;
+  while (option != 4) {
+    printf("Press 1 for Book,\n2 for Serving,\n3 for Display,\n4 for EXIT. : ");
+    scanf("%d", &option);
+    switch(option) {
+      case 1 :
+             booking();
+             break;
+      case 2 :
+             serving();
+             printf("booked : %d\n", n);
+             break;
+      case 3 :
+             display();
+             break;
+      case 4 :
+             printf("Exiting.\n");
     }
-    printf("Enter your name: ");
-    scanf(" %[^\n]s", booking[lastBooking].name);
-    printf("Enter your Aadhar number: ");
-    scanf(" %[^\n]s", booking[lastBooking].aadharNo);
-    printf("Enter your mobile number: ");
-    scanf(" %[^\n]s", booking[lastBooking].mobileNo);
-    printf("Enter your city: ");
-    scanf(" %[^\n]s", booking[lastBooking].city);
-    lastBooking++;
-    printf("Booking successful!\n");
+  }
+  return 0;
 }
 
-void show() {
-    int i;
-    for(i = 0; i < lastBooking; i++) {
-        printf("Booking no: %d\n", i+1);
-        printf("Name: %s\n", booking[i].name);
-        printf("Aadhar number: %s\n", booking[i].aadharNo);
-        printf("Mobile number: %s\n", booking[i].mobileNo);
-        printf("City: %s\n", booking[i].city);
-        printf("\n");
+void booking() {
+  if (R == MAX-1) {
+    printf("Fully Booked.\n");
+  }
+  else {
+    if (R == -1) {
+      R = R+1;
+      F = F+1;
     }
+    else {
+      R = R+1;
+    }
+    printf("Customer Name : ");
+    gets(LQ[R].name);
+    printf("Aadhar No. : ");
+    gets(LQ[R].aadhar);
+    printf("Mobile No. : ");
+    gets(LQ[R].mobile);
+    printf("City : ");
+    gets(LQ[R].city);
+  }
 }
 
-int main() {
-    int choice;
-    while(choice != 3) {
-        printf("1. Book a car\n");
-        printf("2. Show booking details\n");
-        printf("3. Exit\n");
-        printf("Enter your choice : ");
-        scanf("%d", &choice);
-        switch(choice) {
-            case 1:
-                book();
-                break;
-            case 2:
-                show();
-                break;
-            case 3:
-                printf("Exiting.\n");;
-                break;
-            default:
-                printf("Invalid choice!\n");
-        }
+void serving() {
+  char a[20];
+  char b[20];
+  char c[20];
+  char d[20];
+  if (F == -1) {
+    printf("Zero Booking.\n");
+  }
+  else {
+    strcpy(a, LQ[R].name);
+    strcpy(b, LQ[R].aadhar);
+    strcpy(c, LQ[R].mobile);
+    strcpy(d, LQ[R].city);
+    if (F == R) {
+      F = -1;
+      R = -1;
     }
-    return 0;
+    else {
+      F = F+1;
+    }
+    printf("");                 //
+  }
+}
+
+void display() {
+  int i;
+  for (i = F; i <= R; i++) {
+    printf("%d ", LQ[i]);
+  }
+  printf("\n");
 }
