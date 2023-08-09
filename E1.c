@@ -59,13 +59,13 @@ void booking() {
       R = R+1;
     }
     printf("Customer Name : ");
-    gets(LQ[R].name);
+    fgets(LQ[R].name);
     printf("Aadhar No. : ");
-    gets(LQ[R].aadhar);
+    fgets(LQ[R].aadhar);
     printf("Mobile No. : ");
-    gets(LQ[R].mobile);
+    fgets(LQ[R].mobile);
     printf("City : ");
-    gets(LQ[R].city);
+    fgets(LQ[R].city);
   }
 }
 
@@ -78,10 +78,10 @@ void serving() {
     printf("Zero Booking.\n");
   }
   else {
-    strcpy(a, LQ[R].name);
-    strcpy(b, LQ[R].aadhar);
-    strcpy(c, LQ[R].mobile);
-    strcpy(d, LQ[R].city);
+    strcpy(a, LQ[F].name);
+    strcpy(b, LQ[F].aadhar);
+    strcpy(c, LQ[F].mobile);
+    strcpy(d, LQ[F].city);
     if (F == R) {
       F = -1;
       R = -1;
@@ -90,15 +90,15 @@ void serving() {
       F = F+1;                  //
     }
     printf("Served Booking : ---");
-    printf("\nBooking Number : %d", i+1);
+    printf("\nBooking Number : %d", F);
     printf("\nCustomer Name : ");
-    puts(a[20]);
+    puts(a);
     printf("\nAadhar No. : ");
-    puts(b[20]);
+    puts(b);
     printf("\nMobile No. : ");
-    puts(c[20]);
+    puts(c);
     printf("\nCity : ");
-    puts(d[20]);
+    puts(d);
   }
 }
 
@@ -107,21 +107,12 @@ void display() {
   for (i = F; i <= R; i++) {
     printf("\nBooking Number : %d", i+1);
     printf("\nCustomer Name : ");
-    puts(LQ[R].name);
+    puts(LQ[i].name);
     printf("\nAadhar No. : ");
-    puts(LQ[R].aadhar);
+    puts(LQ[i].aadhar);
     printf("\nMobile No. : ");
-    puts(LQ[R].mobile);
+    puts(LQ[i].mobile);
     printf("\nCity : ");
-    puts(LQ[R].city);
+    puts(LQ[i].city);
   }
-    printf("\nBooking Number : %d", i+1);
-    printf("\nCustomer Name : ");
-    puts(LQ[R].name);
-    printf("\nAadhar No. : ");
-    puts(LQ[R].aadhar);
-    printf("\nMobile No. : ");
-    puts(LQ[R].mobile);
-    printf("\nCity : ");
-    puts(LQ[R].city);
 }
