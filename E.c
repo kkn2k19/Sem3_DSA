@@ -12,7 +12,7 @@ sequence in which booking will be served on 1st December.
 struct car {
     char name[20];
     char aadhar[20];
-    char mobile[12];
+    char mobile[20];
     char city[20];
 };
 struct car LQ[MAX];
@@ -24,10 +24,6 @@ void display();
 int main ()
 {
   int option;
-  char n;
-  int a;
-  int m;
-  char c;
   F = -1;
   R = -1;
   while (option != 4) {
@@ -39,7 +35,6 @@ int main ()
              break;
       case 2 :
              serving();
-             printf("booked : %d\n", n);
              break;
       case 3 :
              display();
@@ -92,16 +87,40 @@ void serving() {
       R = -1;
     }
     else {
-      F = F+1;
+      F = F+1;                  //
     }
-    printf("");                 //
+    printf("Served Booking : ---");
+    printf("\nCustomer Name : ");
+    puts(a[20]);
+    printf("\nAadhar No. : ");
+    puts(b[20]);
+    printf("\nMobile No. : ");
+    puts(c[20]);
+    printf("\nCity : ");
+    puts(d[20]);
   }
 }
 
 void display() {
   int i;
   for (i = F; i <= R; i++) {
-    printf("%d ", LQ[i]);
+    printf("\nBooking Number : %d", i+1);
+    printf("\nCustomer Name : ");
+    puts(LQ[R].name);
+    printf("\nAadhar No. : ");
+    puts(LQ[R].aadhar);
+    printf("\nMobile No. : ");
+    puts(LQ[R].mobile);
+    printf("\nCity : ");
+    puts(LQ[R].city);
   }
-  printf("\n");
+    printf("\nBooking Number : %d", i+1);
+    printf("\nCustomer Name : ");
+    puts(LQ[R].name);
+    printf("\nAadhar No. : ");
+    puts(LQ[R].aadhar);
+    printf("\nMobile No. : ");
+    puts(LQ[R].mobile);
+    printf("\nCity : ");
+    puts(LQ[R].city);
 }
