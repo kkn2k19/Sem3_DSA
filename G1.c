@@ -10,6 +10,8 @@ e. Reversing the list
 f. Deletion of a particular node
 */
 
+NOT COMPLETE !!!!!
+
 #include <stdio.h>
 #include <stdlib.h>
 
