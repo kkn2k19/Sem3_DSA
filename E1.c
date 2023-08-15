@@ -10,12 +10,14 @@ sequence in which booking will be served on 1st December.
 NOT COMPLETE!!!!!
 
 #include <stdio.h>
+#include <string.h>
 #define MAX 100
 struct car {
     char name[20];
     char aadhar[20];
     char mobile[20];
     char city[20];
+    char temp[5];
 };
 struct car LQ[MAX];
 int F, R;
@@ -60,14 +62,15 @@ void booking() {
     else {
       R = R+1;
     }
+    fgets(LQ[R].temp, strlen(LQ[R].temp), stdin);
     printf("Customer Name : ");
-    gets(LQ[R].name);
+    fgets(LQ[R].name, strlen(LQ[R].name), stdin);
     printf("Aadhar No. : ");
-    gets(LQ[R].aadhar);
+    fgets(LQ[R].aadhar, strlen(LQ[R].aadhar), stdin);
     printf("Mobile No. : ");
-    gets(LQ[R].mobile);
+    fgets(LQ[R].mobile, strlen(LQ[R].mobile), stdin);
     printf("City : ");
-    gets(LQ[R].city);
+    fgets(LQ[R].city, strlen(LQ[R].city), stdin);
   }
 }
 
@@ -89,7 +92,7 @@ void serving() {
       R = -1;
     }
     else {
-      F = F+1;                  //
+      F = F+1;                
     }
     printf("Served Booking : ---");
     printf("\nBooking Number : %d", F);
