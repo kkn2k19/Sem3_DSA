@@ -91,17 +91,17 @@ void serving() {
       R = -1;
     }
     else {
-      F = F+1;                
+      F = F+1;
     }
     printf("Served Booking : ---");
     printf("\nBooking Number : %d", F);
     printf("\nCustomer Name : ");
     puts(a);
-    printf("\nAadhar No. : ");
+    printf("Aadhar No. : ");
     puts(b);
-    printf("\nMobile No. : ");
+    printf("Mobile No. : ");
     puts(c);
-    printf("\nCity : ");
+    printf("City : ");
     puts(d);
   }
 }
@@ -112,11 +112,11 @@ void display() {
     printf("\nBooking Number : %d", i+1);
     printf("\nCustomer Name : ");
     puts(LQ[i].name);
-    printf("\nAadhar No. : ");
+    printf("Aadhar No. : ");
     puts(LQ[i].aadhar);
-    printf("\nMobile No. : ");
+    printf("Mobile No. : ");
     puts(LQ[i].mobile);
-    printf("\nCity : ");
+    printf("City : ");
     puts(LQ[i].city);
   }
 }
