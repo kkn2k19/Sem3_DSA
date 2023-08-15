@@ -7,8 +7,10 @@ NOT COMPLETE!!!!
 #include <stdlib.h> 
 #include <ctype.h>
 #define MAX 30
+
 char stack[MAX];
 int top;
+
 void push(char ch);
 char pop();
 int operator_check(char ch);
@@ -19,40 +21,43 @@ int main()
 {
   top = -1;
   char infix[20];
-  printf("Enter infix expression : ");
+  printf("Enter infix expression: ");
   fgets(infix, sizeof(infix), stdin);
   char postfix[20];
   convertion(infix, postfix);
-  printf("Postfix Expression : ");
-  puts(postfix);
+  printf("Postfix Expression: %s\n", postfix);
   return 0;
 }
 
 int operator_check(char ch)
 {
-  if (ch == '+' || ch == '-' || ch == '/' || ch == '*')
+  switch(ch)
   {
-    return 1;
-  }
-  else
-  {
-    return 0;
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+    case '^':
+      return 1;
+    default:
+      return 0;
   }
 }
 
 int operator_precedence(char ch)
 {
-  if (ch == '*' || ch == '/')
+  switch(ch)
   {
-    return 2;
-  }
-  else if (ch == '+' || ch == '-')
-  {
-    return 1;
-  }
-  else
-  {
-    return 0;
+    case '^':
+      return 3;
+    case '*':
+    case '/':
+      return 2;
+    case '+':
+    case '-':
+      return 1;
+    default:
+      return 0;
   }
 }
 
@@ -61,46 +66,46 @@ void convertion(char infix[], char postfix[])
   int i, j;
   char item;
   char x;
+  
   push('(');
   strcat(infix, ")");
+  
   i = 0;
   j = 0;
   item = infix[i];
-  while (item != 0)
+  
+  while(item != '\0')
   {
-    if (item == '(')
+    if(item == '(')
       push(item);
-    else if (isdigit(item))
+    else if(isalnum(item))  // Alphanumeric characters
     {
-      postfix[j] = item;
-      j++;
+      postfix[j++] = item;
     }
-    else if (operator_check(item) == 1)
+    else if(operator_check(item) == 1)
     {
       x = pop();
-      while (operator_check(item) == 1 && operator_precedence(x) >= operator_precedence(item))
+      while(operator_check(x) && operator_precedence(x) >= operator_precedence(item))
       {
-        postfix[j] = x;
-        j++;
+        postfix[j++] = x;
         x = pop();
       }
-      push(x);
+      push(x);  // Push back the last popped item which does not satisfy the condition.
       push(item);
     }
-    else if (item == ')')
+    else if(item == ')')
     {
       x = pop();
-      while (x != '(')
+      while(x != '(')
       {
-        postfix[j] = x;
-        j++;
+        postfix[j++] = x;
         x = pop();
       }
     }
     else
     {
-      printf("invalid expression.\n");
-      break;
+      printf("Invalid expression.\n");
+      return;
     }
     i++;
     item = infix[i];
@@ -108,24 +113,21 @@ void convertion(char infix[], char postfix[])
   postfix[j] = '\0';
 }
 
-void push (char ch) {
-  if (top == MAX-1) {
+void push(char ch)
+{
+  if(top == MAX-1)
     printf("Overflow.\n");
-  }
-  else {
-    top = top+1;
-    stack[top] = ch; 
-  }
+  else
+    stack[++top] = ch; 
 }
 
-char pop() {
-  char item;
-  if (top == -1) {
+char pop()
+{
+  if(top == -1)
+  {
     printf("Underflow.\n");
+    return '\0';  // Return a null character to indicate underflow
   }
-  else {
-    item = stack[top];
-    top = top-1;
-  }
-  return item;
+  else
+    return stack[top--];
 }
