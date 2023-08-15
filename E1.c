@@ -7,9 +7,8 @@ Write a menu-driven program to accept a booking, show the customers details, and
 sequence in which booking will be served on 1st December.
 */
 
-NOT COMPLETE!!!!!
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #define MAX 100
 struct car {
@@ -62,15 +61,15 @@ void booking() {
     else {
       R = R+1;
     }
-    fgets(LQ[R].temp, strlen(LQ[R].temp), stdin);
+    fgets(LQ[R].temp, sizeof(LQ[R].temp), stdin);
     printf("Customer Name : ");
-    fgets(LQ[R].name, strlen(LQ[R].name), stdin);
+    fgets(LQ[R].name, sizeof(LQ[R].name), stdin);
     printf("Aadhar No. : ");
-    fgets(LQ[R].aadhar, strlen(LQ[R].aadhar), stdin);
+    fgets(LQ[R].aadhar, sizeof(LQ[R].aadhar), stdin);
     printf("Mobile No. : ");
-    fgets(LQ[R].mobile, strlen(LQ[R].mobile), stdin);
+    fgets(LQ[R].mobile, sizeof(LQ[R].mobile), stdin);
     printf("City : ");
-    fgets(LQ[R].city, strlen(LQ[R].city), stdin);
+    fgets(LQ[R].city, sizeof(LQ[R].city), stdin);
   }
 }
 
