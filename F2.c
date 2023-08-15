@@ -14,12 +14,12 @@ int main()
     int y;
     printf("Enter no. and its exponential power : ");
     scanf("%d %d", &x, &y);
-    k = expo(x, y);
+    k = exponent(x, y);
     printf("Result : %d\n", k);
     return 0;
 }
 
-int expo(int x, int y){
+int exponent(int x, int y){
     int k;
     if (y == 0) {
             return 1;
