@@ -140,31 +140,31 @@ void insert_before(int se)
     }
     node *dh = head;
     node *temp;
-    while (dh->next && dh->next->data != se)
-        dh = dh->next;
-    if (!dh->next)
-    {
-        printf("Not Found: %d\n", se);
+    flag = 0;
+    while (dh -> next != NULL) {
+        if (dh -> next -> data == se) {
+            flag = 1;
+            break;
+        }
+        dh = dh -> next;
+    }
+    if (flag == 0) {
+        printf("Not Found.\n");
         return;
     }
+    node *temp;
     temp = (node *)malloc(sizeof(node));
-    if (!temp)
-    {
-        printf("Memory allocation failed!\n");
-        return;
-    }
-    printf("Enter data to insert before %d: ", se);
-    scanf("%d", &temp->data);
-    temp->next = dh->next;
-    dh->next = temp;
+    scanf ("%d", &temp -> data);
+    temp -> next = dh -> next;
+    dh -> next = temp;
 }
 
 void traverse()
 {
     node *dh = head;
-    while (dh)
+    while (dh != NULL)
     {
-        printf("%d ", dh->data);
+        printf("%d\n", dh->data);
         dh = dh->next;
     }
     printf("\n");
@@ -176,7 +176,7 @@ int searching()
     int flag = 0;
     node *dh = head;
     scanf("%d", &se);
-    while (dh)
+    while (dh != NULL)
     {
         if (se == dh->data)
         {
@@ -192,19 +192,23 @@ void insert_after(int se)
 {
     node *dh = head;
     node *temp;
-    while (dh)
+    int flag = 0;
+    while (dh != NULL)
     {
-        if (se == dh->data)
+        if (se == dh->data) {
+            flag = 1;
             break;
+        }
         dh = dh->next;
     }
-    if (!dh)
+
+    if (flag == 0)
     {
         printf("Not Found: %d\n", se);
         return;
     }
     temp = (node *)malloc(sizeof(node));
-    if (!temp)
+    if (temp == NULL)
     {
         printf("Memory allocation failed!\n");
         return;
@@ -213,8 +217,9 @@ void insert_after(int se)
     scanf("%d", &temp->data);
     temp->next = dh->next;
     dh->next = temp;
-    if (!temp->next)
+    if (!temp->next) {
         last_node = temp;
+    }
 }
 
 
@@ -236,7 +241,7 @@ void reverse_list()
 
 void delete_node(int se)
 {
-    node *temp; 
+    node *temp;
     node *prev;
     if (!head)
     {
