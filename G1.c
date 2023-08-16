@@ -49,7 +49,7 @@ int main()
         printf("8. Exit\n");
         printf("Enter your option: ");
         scanf("%d", &option);
-        switch(option)
+        switch (option)
         {
             case 1:
                 insertion();
@@ -139,8 +139,8 @@ void insert_before(int se)
         return;
     }
     node *dh = head;
-    node *temp;
-    flag = 0;
+
+    int flag = 0;
     while (dh -> next != NULL) {
         if (dh -> next -> data == se) {
             flag = 1;
@@ -222,14 +222,12 @@ void insert_after(int se)
     }
 }
 
-
-
 void reverse_list()
 {
     node *prev = NULL;
-    node *current = head; *
+    node *current = head;
     node *next = NULL;
-    while (current)
+    while (current != NULL)
     {
         next = current->next;
         current->next = prev;
@@ -243,12 +241,12 @@ void delete_node(int se)
 {
     node *temp;
     node *prev;
-    if (!head)
+    if (head == NULL)
     {
         printf("List is empty.\n");
         return;
     }
-    if (head->data == se)
+    if (head -> data == se)
     {
         temp = head;
         head = head->next;
@@ -261,13 +259,14 @@ void delete_node(int se)
         prev = temp;
         temp = temp->next;
     }
-    if (!temp)
+    if (temp == NULL)
     {
-        printf("Node not found: %d\n", se);
+        printf("Node not found : %d\n", se);
         return;
     }
     prev->next = temp->next;
-    if (!temp->next)
+    if (!temp->next) {
         last_node = prev;
+    }
     free(temp);
 }
