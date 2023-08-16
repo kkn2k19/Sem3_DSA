@@ -1,0 +1,176 @@
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 1
+Input data: 11
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 1
+Input data: 12
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 4
+11
+12
+
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 5
+Enter the number to search: 12
+Found
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 1
+Input data: 13
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 1
+Input data: 14
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 4
+11
+12
+13
+14
+
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 5
+Enter the number to search: 13
+Found
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 2
+Enter the value before which to insert: 14
+17
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 3
+Enter the value after which to insert: 11
+Enter data to insert after 11: 18
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 4
+11
+18
+12
+13
+17
+14
+
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option: 11
+18
+12
+13
+17
+14
+
+
+Menu:
+1. Insertion at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Reversing
+8. Exit
+Enter your option:
