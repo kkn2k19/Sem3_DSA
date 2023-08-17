@@ -12,12 +12,10 @@ struct stack
 typedef struct stack node;
 
 node *head;
-//node *last_node;
 
 int main()
 {
     head = NULL;
-    //last_node = NULL;
     int option;
     int item;
     while (option != 4)
@@ -53,16 +51,6 @@ void push(int item)
     temp = (node *)malloc(sizeof(node));
     temp->data = item;
     temp->next = head;
-    /* if (head == NULL)
-    {
-        head = temp;
-        last_node = temp;
-    }
-    else
-    {
-        last_node->next = temp;
-        last_node = temp;
-    } */
     head = temp;
 }
 
