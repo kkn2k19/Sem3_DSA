@@ -38,7 +38,7 @@ int main()
     int value;
     while(option != 8)
     {
-        printf("\nMenu:\n");
+        printf("Menu:\n");
         printf("1. Insertion at last\n");
         printf("2. Insert before a specific node\n");
         printf("3. Insert after a specific node\n");
@@ -224,49 +224,57 @@ void insert_after(int se)
 
 void reverse_list()
 {
-    node *prev = NULL;
-    node *current = head;
-    node *next = NULL;
-    while (current != NULL)
-    {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
+    node *temp;
+    node *dh;
+    node *Rh;
+    Rh = NULL;
+    while (head != NULL) {
+        temp = head;
+        head = head -> next;
+        temp -> next = Rh;
+        Rh = temp;
     }
-    head = prev;
+    head = Rh;
+    traverse();
 }
 
 void delete_node(int se)
 {
     node *temp;
-    node *prev;
-    if (head == NULL)
-    {
-        printf("List is empty.\n");
-        return;
-    }
+    node *dh;
     if (head -> data == se)
     {
         temp = head;
-        head = head->next;
+        head = head -> next;
+        if (head == NULL)
+        {
+            last_node = NULL;
+        }
         free(temp);
         return;
     }
-    temp = head;
-    while (temp && temp->data != se)
+    dh = head;
+    int flag = 0;
+    while (dh -> next != NULL)
     {
-        prev = temp;
-        temp = temp->next;
+        if (dh -> next -> data == se)
+        {
+            flag = 1;
+            break;
+        }
+        dh = dh -> next;
     }
-    if (temp == NULL)
+    if (flag == 0)
     {
-        printf("Node not found : %d\n", se);
+        printf("Not Found.\n");
         return;
     }
-    prev->next = temp->next;
-    if (!temp->next) {
-        last_node = prev;
+    temp = dh -> next;
+    dh -> next = temp -> next;
+    if (dh -> next == NULL)
+    {
+        last_node = dh;
     }
     free(temp);
+    traverse();
 }
