@@ -226,7 +226,7 @@ void reverse_list()
 {
     node *temp;
     node *dh;
-    node *Rh;
+    node *Rh;          //Reverse Head
     Rh = NULL;
     while (head != NULL) {
         temp = head;
@@ -235,7 +235,7 @@ void reverse_list()
         Rh = temp;
     }
     head = Rh;
-    traverse();
+    traverse();      //printing after reversing completed
 }
 
 void delete_node(int se)
