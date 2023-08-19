@@ -1,8 +1,4 @@
-//Write a program to implement a Circular Queue Using Array.
-
-
-NOT COMPLETE YET!!!
-
+//Write a program to implement a Circular Queue Using Array/.
 
 #include <stdio.h>
 #define MAX 10
@@ -19,15 +15,11 @@ int main()
     int option;
     int item;
     int k;
-    
-    F = -1;
-    R = -1;
-    
-    do
-    {
+    F = MAX-1;
+    R = MAX-1;
+    do {
         printf("Press 1 for insertion,\n2 for deletion,\n3 for display,\n4 for exit.\n");
         scanf("%d", &option);
-        
         switch(option)
         {
             case 1:
@@ -50,65 +42,55 @@ int main()
                 printf("Invalid option. Please choose between 1-4.\n");
         }
     } while(option != 4);
-
     return 0;
 }
 
 void insertion(int item)
 {
-    if ((R + 1) % MAX == F)
+    if ((R + 1)%MAX == F)
     {
         printf("Overflow.\n");
         return;
     }
-    
-    if (F == -1) F = 0;
-    
+    if (F == MAX-1) {
+        F = 0;
+    }
     R = (R + 1) % MAX;
     CQ[R] = item;
 }
 
 int deletion()
 {
-    if (F == -1)
+    if (F == MAX-1 && R == MAX-1)
     {
         printf("Underflow.\n");
         return -1;
     }
-    
     int item = CQ[F];
-    
     if (F == R)
     {
-        F = R = -1;
+        F = MAX-1;
+        R = MAX-1;
     }
     else
     {
-        F = (F + 1) % MAX;
+        F = (F+1)%MAX;
     }
-
     return item;
 }
 
 void display()
 {
-    if (F == -1)
+    if (F == MAX-1 &&  R == MAX-1)
     {
         printf("Circular Queue is empty.\n");
         return;
     }
-
     printf("Circular Queue: ");
     int i = F;
-
-    while(1)
-    {
+    do {
         printf("%d ", CQ[i]);
-        
-        if (i == R) break;
-        
         i = (i + 1) % MAX;
-    }
-
-    printf("\n");
+    } while(i != (R+1)%MAX);
+   printf("\n");
 }
