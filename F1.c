@@ -1,13 +1,13 @@
-/*Find the GCD of two numbers recursively by Euclids algorithm which states 
+/*Find the GCD of two numbers recursively by Euclids algorithm which states
 
       GCD (a,b) = b       if b divides a
-                = GCD (b, a mod b), otherwise 
+                = GCD (b, a mod b), otherwise
 */
 
 #include <stdio.h>
 int gcd (int a, int b);
 
-int main () 
+int main ()
 {
   int a, b, res;
   printf("Provide two numbers : ");
@@ -23,7 +23,7 @@ int gcd (int a, int b) {
     return (b);
   }
   else {
-    k = GCD (b, r);
+    k = gcd(b, r);
     return (k);
   }
 }
