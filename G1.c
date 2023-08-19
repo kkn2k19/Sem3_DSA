@@ -94,7 +94,7 @@ int main()
                 printf("Exiting...\n");
                 break;
             default:
-                printf("Invalid option. Please choose a number between 1 and 9.\n");
+                printf("Invalid option. Please choose a number between 1 and 8.\n");
         }
     }
     return 0;
