@@ -13,7 +13,7 @@ sequence in which booking will be served on 1st December.
 #define MAX 100
 struct car {
     char name[20];
-    char aadhar[20];
+    char aadhaar[20];
     char mobile[20];
     char city[20];
     char temp[5];
@@ -30,7 +30,7 @@ int main ()
   F = -1;
   R = -1;
   while (option != 4) {
-    printf("Press 1 for Book,\n2 for Serving,\n3 for Display,\n4 for EXIT. : ");
+    printf("\nPress 1 for Book,\n2 for Serving,\n3 for Display,\n4 for EXIT. : ");
     scanf("%d", &option);
     switch(option) {
       case 1 :
@@ -64,8 +64,8 @@ void booking() {
     fgets(LQ[R].temp, sizeof(LQ[R].temp), stdin);
     printf("Customer Name : ");
     fgets(LQ[R].name, sizeof(LQ[R].name), stdin);
-    printf("Aadhar No. : ");
-    fgets(LQ[R].aadhar, sizeof(LQ[R].aadhar), stdin);
+    printf("Aadhaar No. : ");
+    fgets(LQ[R].aadhaar, sizeof(LQ[R].aadhaar), stdin);
     printf("Mobile No. : ");
     fgets(LQ[R].mobile, sizeof(LQ[R].mobile), stdin);
     printf("City : ");
@@ -83,7 +83,7 @@ void serving() {
   }
   else {
     strcpy(a, LQ[F].name);
-    strcpy(b, LQ[F].aadhar);
+    strcpy(b, LQ[F].aadhaar);
     strcpy(c, LQ[F].mobile);
     strcpy(d, LQ[F].city);
     if (F == R) {
@@ -93,30 +93,22 @@ void serving() {
     else {
       F = F+1;
     }
-    printf("Served Booking : ---");
-    printf("\nBooking Number : %d", F);
-    printf("\nCustomer Name : ");
-    puts(a);
-    printf("Aadhar No. : ");
-    puts(b);
-    printf("Mobile No. : ");
-    puts(c);
-    printf("City : ");
-    puts(d);
+    printf("Served Booking : --- \n");
+    printf("Booking Number : %d\n", F);
+    printf("Customer Name : %s", a);
+    printf("Aadhaar No. : %s", b);
+    printf("Mobile No. : %s", c);
+    printf("City : %s", d);
   }
 }
 
 void display() {
   int i;
   for (i = F; i <= R; i++) {
-    printf("\nBooking Number : %d", i+1);
-    printf("\nCustomer Name : ");
-    puts(LQ[i].name);
-    printf("Aadhar No. : ");
-    puts(LQ[i].aadhar);
-    printf("Mobile No. : ");
-    puts(LQ[i].mobile);
-    printf("City : ");
-    puts(LQ[i].city);
+    printf("\nBooking Number : %d\n", i+1);
+    printf("Customer Name : %s", LQ[i].name);
+    printf("Aadhaar No. : %s", LQ[i].aadhaar);
+    printf("Mobile No. : %s", LQ[i].mobile);
+    printf("City : %s", LQ[i].city);
   }
 }
