@@ -22,10 +22,10 @@ int main()
 int exponent(int x, int y){
     int k;
     if (y == 0) {
-            return 1;
+        return 1;
     }
     else {
-            k = x*expo(x, y-1);
-            return k;
+        k = x*exponent(x, y-1);
+        return k;
     }
 }
