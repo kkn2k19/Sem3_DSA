@@ -30,11 +30,14 @@ int main()
 }
 
 int operator_check(char ch) {
-    return (ch == '+' || ch == '-' || ch == '*' || ch == '/');
+    return (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^');
 }
 
 int operator_precedence(char ch) {
-    if (ch == '*' || ch == '/')
+    if (ch == '^') {
+        return 3;
+}
+    else if (ch == '*' || ch == '/')
         {
             return 2;
         }
