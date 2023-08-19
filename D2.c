@@ -18,7 +18,7 @@ int main()
     F = MAX-1;
     R = MAX-1;
     do {
-        printf("Press 1 for insertion,\n2 for deletion,\n3 for display,\n4 for exit.\n");
+        printf("Press 1 for insertion,\n2 for deletion,\n3 for display,\n4 for exit. : ");
         scanf("%d", &option);
         switch(option)
         {
