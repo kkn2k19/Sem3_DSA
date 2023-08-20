@@ -117,7 +117,36 @@ void insert_at_last(int item) {
 }
 
 void insert_before(int item, int se) {
-    node
+   node *dh = head;
+   node *temp;
+   temp = (node*)malloc(sizeof(node));
+   int flag = 0;
+   if (head == NULL) {
+        printf("Linked List is Empty.\n");
+        return;
+    }
+    if (head->data == se) {
+        temp->data = item;
+        temp->next = head;
+        head = temp;
+        last_node->next = head;
+        return;
+    }
+    while (dh->next != NULL) {
+        if (dh->next->data == se) {
+            flag = 1;
+            break;
+        }
+        dh = dh->next;
+    }
+    if (flag == 0) {
+        printf("Node %d not found.\n", se);
+        return;
+    }
+    temp->data = item;
+    temp->next = dh->next;
+    dh->next = temp;
+    last_node = head;
 }
 
 void traverse()
