@@ -9,9 +9,6 @@ d. Traversing
 e. Deletion of a particular node
 */
 
-NOT COMPLETE YET!!!!!
-
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -132,13 +129,13 @@ void insert_before(int item, int se) {
         last_node->next = head;
         return;
     }
-    while (dh->next != NULL) {
+    do {
         if (dh->next->data == se) {
             flag = 1;
             break;
         }
         dh = dh->next;
-    }
+    } while (dh != head);
     if (flag == 0) {
         printf("Node %d not found.\n", se);
         return;
@@ -146,7 +143,32 @@ void insert_before(int item, int se) {
     temp->data = item;
     temp->next = dh->next;
     dh->next = temp;
-    last_node = head;
+    //last_node = head;
+}
+
+void insert_after(int item, int se)
+{
+    node *dh=head;
+    node *temp;
+    temp=(node *)malloc(sizeof(node));
+    int flag=0;
+    do {
+        if (dh->data == se) {
+            flag = 1;
+            break;
+        }
+        dh=dh->next;
+    } while(dh != head);
+    if (flag == 0) {
+        printf("Node %d not found.\n", se);
+        return;
+    }
+    temp->data=item;
+    temp->next=dh->next;
+    dh->next=temp;
+    if (temp->next==head) {
+        last_node=temp;
+    }
 }
 
 void traverse()
@@ -161,4 +183,54 @@ void traverse()
         dh = dh->next;
     } while (dh != head);
     printf("\n");
+}
+
+int searching(int se) {
+    node *dh=head;
+    int flag = 0;
+    do {
+        if (se == dh->data) {
+            flag = 1;
+            break;
+        }
+        dh=dh->next;
+    } while (dh != head);
+    return flag;
+}
+
+void delete_node(int se) {
+    node *dh=head;
+    node *temp;
+    temp=(node *)malloc(sizeof(node));
+    int flag = 0;
+    if (head->data==se) {
+        temp=head;
+        head=head->next;
+        if (head==last_node) {
+            head = NULL;
+            last_node = NULL;
+        }
+        else {
+            last_node->next=head;
+        }
+        free(temp);
+        return;
+    }
+    do {
+        if (dh->next->data == se) {
+            flag = 1;
+            break;
+        }
+        dh=dh->next;
+    } while(dh != head);
+    if (flag == 0) {
+        printf("Node %d not found.\n", se);
+        return;
+    }
+    temp=dh->next;
+    dh->next=temp->next;
+    if (temp->next == head) {
+        last_node = dh;
+    }
+    free(temp);
 }
