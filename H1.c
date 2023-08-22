@@ -143,7 +143,6 @@ void insert_before(int item, int se) {
     temp->data = item;
     temp->next = dh->next;
     dh->next = temp;
-    //last_node = head;
 }
 
 void insert_after(int item, int se)
