@@ -78,10 +78,12 @@ int main()
             case 5:
                 printf("Enter value to search: ");
                 scanf("%d", &se);
-                if(searching(se))
+                if(searching(se)) {
                     printf("Found\n");
-                else
+                }
+                else {
                     printf("Not Found\n");
+                }
                 break;
             case 6:
                 reverse();
@@ -214,5 +216,31 @@ void reverse() {
 }
 
 void delete_node(int se) {
+    node *dh=head;;
+    node *temp;
+    temp=(node *)malloc(sizeof(node));
+    if (head->data==se) {
+        temp=head;
+        head=head->next;
+        head->prev=NULL;
+        if (head==NULL) {
+            tail=NULL;
+        }
+        printf("Deleted : %d\n", se);
+        free(temp);
+        return;
+    }
+    int flag=0;
+    while(dh != NULL) {
+        if (dh->data==se) {
+            flag=1;
+            break;
+        }
+        dh=dh->next;
+    }
+    if (flag==0) {
+        printf("Node %d not found\n", se);
+        return;
+    }
 
 }
