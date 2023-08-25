@@ -13,6 +13,7 @@ f. Deletion of a particular Node.
 //NOT COMPLETE YET!!!!!
 
 #include <stdio.h>
+#include <stdlib.h>
 
 struct box
 {
@@ -216,31 +217,48 @@ void reverse() {
 }
 
 void delete_node(int se) {
-    node *dh=head;;
+    node *dh=head;
     node *temp;
-    temp=(node *)malloc(sizeof(node));
-    if (head->data==se) {
-        temp=head;
-        head=head->next;
-        head->prev=NULL;
-        if (head==NULL) {
-            tail=NULL;
-        }
-        printf("Deleted : %d\n", se);
-        free(temp);
-        return;
-    }
     int flag=0;
-    while(dh != NULL) {
-        if (dh->data==se) {
+    while(dh != NULL)
+    {
+        if (dh->data == se)
+        {
             flag=1;
             break;
         }
         dh=dh->next;
     }
-    if (flag==0) {
-        printf("Node %d not found\n", se);
+    if(flag==0) {
+        printf("Node %d not found.\n", se);
         return;
     }
-
+    temp=dh;
+    if (dh->prev==NULL)
+    {
+        head=head->next;
+        if(head==NULL) {
+            tail=NULL;
+            free(temp);
+            return;
+        }
+        else {
+            head->prev=NULL;
+        }
+    }
+    else {
+        dh->prev->next=dh->next;
+    }
+    if(dh->next==NULL) {
+        tail=tail->prev;
+        if (tail==NULL) {
+            head=NULL;
+        }
+        else {
+            tail->next=NULL;
+        }
+    }
+    else {
+        dh->next->prev=dh->prev;
+    }
 }
