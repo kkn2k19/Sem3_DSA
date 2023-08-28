@@ -1,0 +1,137 @@
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 1
+Enter element to insert at last : 11
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 1
+Enter element to insert at last : 12
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 1
+Enter element to insert at last : 13
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 2
+Enter value before which to insert : 12
+Enter element to insert : 10
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 3
+Enter value after which to insert : 10
+Enter element to insert : 15
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 4
+11
+10
+15
+12
+13
+
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 5
+Enter value to search : 101
+Not Found
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 5
+Enter value to search : 11
+Found
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 6
+Enter value to delete : 15
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 4
+11
+10
+12
+13
+
+
+Menu :
+1. Insert at last
+2. Insert before a specific node
+3. Insert after a specific node
+4. Traversing
+5. Searching
+6. Deletion of a particular node
+7. Exit
+Enter your option: 7
+Exiting.
+
+Process returned 0 (0x0)   execution time : 57.296 s
+Press any key to continue.
