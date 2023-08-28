@@ -254,6 +254,9 @@ void delete_node(int se) {
         printf("Node %d not found.\n", se);
         return;
     }
+    else {
+        printf("Deleted : %d\n", se);
+    }
     temp=dh;
     if (dh->prev==NULL)
     {
