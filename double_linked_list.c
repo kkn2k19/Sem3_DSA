@@ -6,6 +6,8 @@ b. Insertion
    ii. Before a Specific Node
 c. Searching
 d. Traversing
+   i.  Traversing Normal
+   ii. Traversing backward
 e. Reversing the list
 f. Deletion of a particular Node.
 */
@@ -33,6 +35,7 @@ void insert_after(int item, int se);
 void traverse();
 int searching(int se);
 void delete_node(int se);
+void traverse_backward();
 void reverse();
 
 int main()
@@ -47,9 +50,10 @@ int main()
         printf("3. Insert after a specific node\n");
         printf("4. Traversing\n");
         printf("5. Searching\n");
-        printf("6. Reversing\n");
+        printf("6. Traversing backward\n");
         printf("7. Deletion of a particular node\n");
-        printf("8. Exit\n");
+        printf("8. Reversing\n");
+        printf("9. Exit\n");
         printf("Enter your option: ");
         scanf("%d", &option);
         switch (option)
@@ -87,7 +91,7 @@ int main()
                 }
                 break;
             case 6:
-                reverse();
+                traverse_backward();
                 break;
             case 7:
                 printf("Enter value to delete: ");
@@ -95,12 +99,15 @@ int main()
                 delete_node(se);
                 break;
             case 8:
+                reverse();
+                break;
+            case 9:
                 printf("Exiting...\n");
                 break;
             default:
-                printf("Invalid option. Please choose a number between 1 and 8.\n");
+                printf("Invalid option. Please choose a number between 1 and 9.\n");
         }
-    } while (option != 8);
+    } while (option != 9);
     return 0;
 }
 
@@ -193,6 +200,7 @@ void traverse() {
         printf("%d ", dh->data);
         dh=dh->next;
     }
+    printf("\n");
 }
 
 int searching(int se) {
@@ -208,12 +216,25 @@ int searching(int se) {
     return flag;
 }
 
-void reverse() {
+void traverse_backward() {
     node *dh=tail;
     while (dh!=NULL) {
         printf("%d ", dh->data);
         dh=dh->prev;
     }
+}
+
+void reverse() {
+    node *temp;
+    node *Rh = NULL;
+    while (head != NULL) {
+        temp = head;
+        head = head->next;
+        temp->next = Rh;
+        Rh = temp;
+    }
+    head = Rh;
+    traverse();
 }
 
 void delete_node(int se) {
