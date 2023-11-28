@@ -3,11 +3,11 @@
 MyHash(string:: key)
 {
     k= length of String key
-    initialize u=0,n=0; 
+    initialize u=0,n=0;
     for each character, key[i], do:
-           n = ASCII (key[i]) 
-           u+=i*n%31; 
-   next character 
+           n = ASCII (key[i])
+           u+=i*n%31;
+   next character
    return u%139;
 }
 
